@@ -4,7 +4,30 @@
   top: 0;
   bottom: 0;
   width: 100px;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+  overflow-y: auto;
   background-color: var(--white);
   border-top-right-radius: 15px;
+}
+
+.link {
+  margin-bottom: 34px;
+}
+
+.logoIcon {
+  margin-bottom: 26px;
+}
+
+.profilePic {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  margin-bottom: 26px;
+  object-fit: cover;
 }

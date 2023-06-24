@@ -1,0 +1,27 @@
+.wrapper {
+  padding: 50px 30px 50px 130px;
+}
+
+.body {
+  margin: 0 auto;
+  height: 590px;
+  max-height: calc(100vh - 100px);
+  padding: 15px;
+
+  border-radius: 15px;
+  background: var(--white);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media screen and (min-width: 1441px) {
+  .body {
+    max-width: 1440px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .body {
+    max-width: 1135px;
+  }
+}

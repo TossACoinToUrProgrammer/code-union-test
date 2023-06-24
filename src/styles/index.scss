@@ -1,0 +1,24 @@
+@import "./fonts.scss";
+@import "./vars.scss";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: 'Futura';
+}
+
+p {
+  color: var(--purple);
+}

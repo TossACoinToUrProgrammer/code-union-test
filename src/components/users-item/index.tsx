@@ -3,6 +3,7 @@ import { IUser } from '../../types'
 import { ReactComponent as DotsIcon } from '../../assets/icons/dots.svg'
 import Tag from '../tag'
 import styles from './styles.module.scss'
+import ModalWindow from '../modal-window'
 
 interface UsersItemProps {
     user: IUser
@@ -20,7 +21,14 @@ const UsersItem: React.FC<UsersItemProps> = ({ user }) => {
                 </div>
                 <div className={styles.tags}>{user.permissions.map(permission => <Tag key={permission}>{permission}</Tag>)}</div>
             </div>
-            <button className={styles.button}><DotsIcon /></button>
+            <div className={styles.button}>
+                <DotsIcon />
+                <ModalWindow className={styles.popup}>
+                    <button>Изменить права доступа</button>
+                    <button>Отправить код повторно</button>
+                    <button>Удалить пользователя</button>
+                </ModalWindow>
+            </div>
         </div>
     )
 }

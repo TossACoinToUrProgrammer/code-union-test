@@ -16,7 +16,7 @@ import cn from 'classnames'
 
 const Navbar = () => {
   return (
-    <div className={styles.navbar}>
+    <nav className={styles.navbar}>
       <Link to={'/'} className={cn(styles.link, styles.logoIcon)}><LogoIcon /></Link>
       <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?cs=srgb&dl=pexels-simon-robben-614810.jpg&fm=jpg" alt="" className={styles.profilePic} />
       <Link to={'/'} className={styles.link}><AnalyticIcon /></Link>
@@ -28,7 +28,7 @@ const Navbar = () => {
       <Link to={'/'} className={styles.link}><BlogIcon /></Link>
       <Link to={'/'} className={styles.link}><CurrencyIcon /></Link>
       <Link to={'/'} className={styles.link}><ExitIcon /></Link>
-    </div>
+    </nav>
   )
 }
 

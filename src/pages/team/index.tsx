@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styles from './styles.module.scss'
 import SearchInput from '../../components/search-input'
 import Button from '../../components/button'
 import UsersList from '../../components/users-list'
-import users from '../../users.json'
 import AddUserForm from '../../components/add-user-form'
+import { AppStateContext } from '../../contexts/AppStateContext'
 
 const TeamPage = () => {
   const [formIsOpen, setFormIsOpen] = useState(false)
+  const { state } = useContext(AppStateContext)
 
   const onSubmit = (data: any) => {
     console.log('data', data)
@@ -29,7 +30,7 @@ const TeamPage = () => {
         <SearchInput placeholder='Поиск по Email' className={styles.searchInput} />
         <Button className={styles.button} onClick={openForm}>Добавить пользователя</Button>
       </div>
-      <UsersList users={users} />
+      <UsersList users={state.users} />
       {formIsOpen && <AddUserForm submit={onSubmit} close={closeForm} />}
     </div>
   )

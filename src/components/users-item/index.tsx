@@ -1,15 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { IUser } from '../../types'
 import { ReactComponent as DotsIcon } from '../../assets/icons/dots.svg'
 import Tag from '../tag'
 import styles from './styles.module.scss'
 import ModalWindow from '../modal-window'
+import { AppStateContext } from '../../contexts/AppStateContext'
 
 interface UsersItemProps {
     user: IUser
 }
 
 const UsersItem: React.FC<UsersItemProps> = ({ user }) => {
+    const { deleteUser, sendMail } = useContext(AppStateContext)
+
+    const deleteHandler = () => {
+        deleteUser(user.email)
+    }
+
+    const sendMailHandler = () => {
+        sendMail(user.email)
+    }
+
     return (
         <div className={styles.userItem}>
             <div><img src={user.image} alt="" className={styles.profilePic} /></div>
@@ -25,8 +36,8 @@ const UsersItem: React.FC<UsersItemProps> = ({ user }) => {
                 <DotsIcon />
                 <ModalWindow className={styles.popup}>
                     <button>Изменить права доступа</button>
-                    <button>Отправить код повторно</button>
-                    <button>Удалить пользователя</button>
+                    <button onClick={sendMailHandler}>Отправить код повторно</button>
+                    <button onClick={deleteHandler}>Удалить пользователя</button>
                 </ModalWindow>
             </div>
         </div>

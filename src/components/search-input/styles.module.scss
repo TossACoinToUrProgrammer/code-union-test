@@ -1,0 +1,28 @@
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 36px;
+
+  input {
+    height: 100%;
+    width: 100%;
+    padding: 8px 13px;
+
+    font-weight: 450;
+    line-height: 1;
+    color: var(--gray);
+    border-radius: 10px;
+    border: 1px solid var(--gray2);
+    background-color: var(--white);
+    
+    &:focus {
+      outline: 2px solid var(--gray2);
+    }
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  right: 13px;
+}

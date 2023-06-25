@@ -1,40 +1,40 @@
 import { PropsWithChildren, createContext, useRef, useState } from "react";
-import users from '../users.json'
+import defaulUsers from '../users.json'
 import { IUser } from "../types";
 
 const initialState = {
     alert: null as string | null,
-    users: users as IUser[],
-    permissions: [
-        "Все",
-        "Модерация объявлений",
-        "Блог",
-        "Тех. поддержка",
-        "Обращения клиентов",
-        "Аналитика",
-        "Акции",
-        "Администратор",
-    ] as string[]
-}
-
-export const AppStateContext = createContext({
-    state: initialState,
+    users: [] as IUser[],
+    permissions: [] as string[],
+    navbarOpen: false,
     setAlert: (prop: any) => { },
     deleteUser: (email: any) => { },
     sendMail: (email: string) => { },
     addUser: (user: IUser) => { },
-    editUser: (permissions: string[], email: string) => { }
-});
+    editUser: (permissions: string[], email: string) => { },
+    toggleNavbar: () => { }
+}
+
+const defaultPermissions = [
+    "Все",
+    "Модерация объявлений",
+    "Блог",
+    "Тех. поддержка",
+    "Обращения клиентов",
+    "Аналитика",
+    "Акции",
+    "Администратор",
+]
+
+export const AppStateContext = createContext(initialState);
 
 export const AppStateProvider: React.FC<PropsWithChildren> = ({ children }) => {
-    const [appState, setAppState] = useState(initialState)
-
-    const setAlert = (message: string | null) => {
-        setAppState(prev => ({ ...prev, alert: message }))
-    }
+    const [users, setUsers] = useState<IUser[]>(defaulUsers)
+    const [alert, setAlert] = useState<string | null>(null)
+    const [navbarOpen, setNavbarOpen] = useState(false)
 
     const deleteUser = (email: string) => {
-        setAppState(prev => ({ ...prev, users: prev.users.filter(item => item.email !== email) }))
+        setUsers(prev => prev.filter(item => item.email !== email))
         setAlert('Пользователь успешно удален')
     }
 
@@ -43,22 +43,23 @@ export const AppStateProvider: React.FC<PropsWithChildren> = ({ children }) => {
     }
 
     const addUser = (user: IUser) => {
-        setAppState(prev => ({ ...prev, users: [...prev.users, user] }))
+        setUsers(prev => [...prev, user])
         setAlert(`Новый пользователь добавлен`)
     }
 
     const editUser = (permissions: string[], email: string) => {
-        setAppState(prev => {
-            return {
-                ...prev,
-                users: prev.users.map(user => user.email === email ? { ...user, permissions } : user)
-            }
+        setUsers(prev => {
+            return prev.map(user => user.email === email ? { ...user, permissions } : user)
         })
         setAlert(`Права доступа пользователя изменены`)
     }
 
+    const toggleNavbar = () => {
+        setNavbarOpen(prev => !prev)
+    }
+
     return (
-        <AppStateContext.Provider value={{ state: appState, setAlert, deleteUser, sendMail, addUser, editUser }}>
+        <AppStateContext.Provider value={{ users, navbarOpen, alert, permissions: defaultPermissions, setAlert, deleteUser, sendMail, addUser, editUser, toggleNavbar }}>
             {children}
         </AppStateContext.Provider>
     );

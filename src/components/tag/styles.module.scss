@@ -7,3 +7,15 @@
   border: 1px solid var(--gray2);
   border-radius: 10px;
 }
+
+@media screen and (max-width: 576px) {
+  .tag {
+    padding: 2px 5px;
+    margin-right: 3px;
+    font-size: 14px;
+    font-weight: 450;
+    color: var(--gray);
+    border: 1px solid var(--gray2);
+    border-radius: 5px;
+  }
+}

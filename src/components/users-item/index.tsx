@@ -15,6 +15,8 @@ interface UsersItemProps {
 const UsersItem: React.FC<UsersItemProps> = ({ user }) => {
     const { deleteUser, sendMail, editUser } = useContext(AppStateContext)
     const [formIsOpen, setFormIsOpen] = useState(false)
+    const [popupIsOpen, setPopupIsOpen] = useState(false)
+
 
     const deleteHandler = () => {
         deleteUser(user.email)

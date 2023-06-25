@@ -24,3 +24,39 @@
   margin-left: auto;
   width: 60%;
 }
+
+.mobileBurger {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .mobileBurger {
+    display: initial;
+    margin-right: 10px;
+  }
+
+  h3 {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .header {
+    flex-direction: column;
+    border: none;
+  }
+
+  h3 {
+    display: block;
+  }
+
+  .searchInput {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 7px;
+  }
+
+  .page .button {
+    margin-left: 0;
+  }
+}

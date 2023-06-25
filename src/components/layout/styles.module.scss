@@ -20,3 +20,14 @@
     max-width: 1135px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding: 0;
+  }
+  
+  .body {
+    width: 100%;
+    min-height: 100vh;
+  }
+}

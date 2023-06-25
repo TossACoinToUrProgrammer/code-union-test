@@ -10,7 +10,7 @@ interface AddUserFormProps {
 }
 
 const EditUserForm: React.FC<AddUserFormProps> = ({ submit, close, userPermissions }) => {
-    const { state: { permissions: statePermissions } } = useContext(AppStateContext)
+    const { permissions: statePermissions } = useContext(AppStateContext)
 
     const [permissions, setPermissions] = useState(statePermissions.map(item => ({ name: item, value: userPermissions.includes(item) })))
 

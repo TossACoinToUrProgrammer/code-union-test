@@ -18,6 +18,10 @@
 
 .link {
   margin-bottom: 34px;
+
+  span {
+    display: none;
+  }
 }
 
 .logoIcon {
@@ -27,4 +31,76 @@
 .profilePic {
   @include roundImage();
   margin-bottom: 26px;
+}
+
+.mobileBurger {
+  display: none;
+}
+
+.profileInfo {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    z-index: 9;
+    width: 244px;
+    align-items: start;
+    box-shadow: -30px 30px 50px 40px #1c1c1e1a;
+    transform: translateX(-100%);
+    transition: all 0.4s ease;
+
+    &.navbarOpen {
+      transform: translateX(0);
+    }
+  }
+
+  .link.logoIcon {
+    display: none;
+  }
+
+  .profilePic {
+    margin-bottom: 0;
+    margin-right: 13px;
+  }
+
+  .mobileBurger {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .link {
+    display: flex;
+    align-items: center;
+
+    span {
+      display: initial;
+      margin-left: 17px;
+      font-weight: 500;
+      color: var(--gray);
+    }
+  }
+
+  .profile {
+    margin-bottom: 26px;
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 16px;
+      color: var(--gray);
+      font-weight: 450;
+    }
+  }
+
+  .mobileName {
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--secondary);
+  }
+
+  .profileInfo {
+    display: initial;
+  }
 }

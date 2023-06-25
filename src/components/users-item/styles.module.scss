@@ -46,6 +46,9 @@
 
 .tags {
   margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
 }
 
 .popup {
@@ -70,5 +73,15 @@
     &:active {
       background-color: var(--lightGray);
     }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .body {
+    font-size: 14px;
+  }
+
+  .name {
+    display: block;
   }
 }

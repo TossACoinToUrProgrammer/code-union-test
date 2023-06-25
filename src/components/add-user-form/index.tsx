@@ -11,7 +11,7 @@ interface AddUserFormProps {
 
 const AddUserForm: React.FC<AddUserFormProps> = ({ submit, close }) => {
     const inputRef = useRef<HTMLInputElement>(null)
-    const { state: { permissions: statePermissions } } = useContext(AppStateContext)
+    const { permissions: statePermissions } = useContext(AppStateContext)
 
     const [permissions, setPermissions] = useState(statePermissions.map(item => ({ name: item, value: false })))
 

@@ -4,7 +4,17 @@ import { IUser } from "../types";
 
 const initialState = {
     alert: null as string | null,
-    users: users as IUser[]
+    users: users as IUser[],
+    permissions: [
+        "Все",
+        "Модерация объявлений",
+        "Блог",
+        "Тех. поддержка",
+        "Обращения клиентов",
+        "Аналитика",
+        "Акции",
+        "Администратор",
+    ] as string[]
 }
 
 export const AppStateContext = createContext({
@@ -12,7 +22,8 @@ export const AppStateContext = createContext({
     setAlert: (prop: any) => { },
     deleteUser: (email: any) => { },
     sendMail: (email: string) => { },
-    addUser: (user: IUser) => { }
+    addUser: (user: IUser) => { },
+    editUser: (permissions: string[], email: string) => { }
 });
 
 export const AppStateProvider: React.FC<PropsWithChildren> = ({ children }) => {
@@ -36,8 +47,18 @@ export const AppStateProvider: React.FC<PropsWithChildren> = ({ children }) => {
         setAlert(`Новый пользователь добавлен`)
     }
 
+    const editUser = (permissions: string[], email: string) => {
+        setAppState(prev => {
+            return {
+                ...prev,
+                users: prev.users.map(user => user.email === email ? { ...user, permissions } : user)
+            }
+        })
+        setAlert(`Права доступа пользователя изменены`)
+    }
+
     return (
-        <AppStateContext.Provider value={{ state: appState, setAlert, deleteUser, sendMail, addUser }}>
+        <AppStateContext.Provider value={{ state: appState, setAlert, deleteUser, sendMail, addUser, editUser }}>
             {children}
         </AppStateContext.Provider>
     );

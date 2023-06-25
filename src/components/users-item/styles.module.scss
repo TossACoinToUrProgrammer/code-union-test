@@ -1,0 +1,46 @@
+@import "../../styles/mixins.scss";
+
+.userItem {
+  padding: 18px 29px;
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    background: #efeff6;
+  }
+}
+
+.profilePic {
+  @include roundImage();
+}
+
+.body {
+  margin: 0 11px;
+  width: 100%;
+  font-size: 18px;
+}
+
+.name {
+  margin-right: 10px;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.email {
+  font-weight: 450;
+  color: var(--gray);
+}
+
+.button {
+  height: 30px;
+  padding: 5px;
+  display: flex;
+  align-items: start;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.tags {
+  margin-top: 10px;
+}

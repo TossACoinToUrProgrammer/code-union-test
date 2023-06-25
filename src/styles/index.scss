@@ -16,6 +16,12 @@ li {
 }
 
 body {
-  font-family: 'Futura';
+  font-family: "Futura";
   background-color: var(--lightGray);
+}
+
+button,
+input {
+  font-family: "Futura";
+  font-size: 18px;
 }

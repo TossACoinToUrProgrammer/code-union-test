@@ -28,7 +28,7 @@ const AddUserForm: React.FC<AddUserFormProps> = ({ submit, close }) => {
 
     const onSubmit = (e: any) => {
         e.preventDefault()
-        submit({ email: inputRef.current?.value, permissions })
+        submit({ email: inputRef.current?.value, permissions: permissions.map(item => item.name) })
     }
 
     return (

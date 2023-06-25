@@ -5,6 +5,7 @@ import Tag from '../tag'
 import styles from './styles.module.scss'
 import ModalWindow from '../modal-window'
 import { AppStateContext } from '../../contexts/AppStateContext'
+import profileLogo from '../../assets/icons/profile.svg'
 
 interface UsersItemProps {
     user: IUser
@@ -23,7 +24,7 @@ const UsersItem: React.FC<UsersItemProps> = ({ user }) => {
 
     return (
         <div className={styles.userItem}>
-            <div><img src={user.image} alt="" className={styles.profilePic} /></div>
+            <div><img src={user.image || profileLogo} alt="" className={styles.profilePic} /></div>
             <div className={styles.body}>
                 <div>
                     <span className={styles.name}>{user.name}</span>

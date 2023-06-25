@@ -8,10 +8,10 @@ import { AppStateContext } from '../../contexts/AppStateContext'
 
 const TeamPage = () => {
   const [formIsOpen, setFormIsOpen] = useState(false)
-  const { state } = useContext(AppStateContext)
+  const { state, addUser } = useContext(AppStateContext)
 
   const onSubmit = (data: any) => {
-    console.log('data', data)
+    addUser({ permissions: data.permissions, email: data.email, name: "Пользователь" })
     closeForm()
   }
 

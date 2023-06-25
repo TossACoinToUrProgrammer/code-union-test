@@ -1,7 +1,7 @@
 interface IUser {
     name: string,
     email: string,
-    image: string,
+    image?: string,
     permissions: string[]
 }
 

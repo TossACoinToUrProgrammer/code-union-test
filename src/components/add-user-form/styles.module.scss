@@ -1,0 +1,108 @@
+.wrapper {
+  position: fixed;
+  top: 30%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.modal {
+  position: relative;
+  padding: 59px 61px;
+  width: 526px;
+  height: 378px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.closeButton {
+  position: absolute;
+  right: 20px;
+  top: 26px;
+
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+  background-color: var(--lightGray);
+  border: none;
+}
+
+.title {
+  margin-bottom: 17px;
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .input {
+    width: 100%;
+    padding: 16px 20px;
+    margin-bottom: 8px;
+
+    font-size: 20px;
+    font-weight: 450;
+    line-height: 1;
+    color: var(--gray);
+    border-radius: 10px;
+    border: 1px solid var(--gray2);
+    background-color: var(--white);
+
+    &:focus {
+      outline: 2px solid var(--gray2);
+    }
+  }
+}
+
+.select {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+    
+  .input {
+    cursor: pointer;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    right: 20px;
+    background-image: url("../../assets/icons/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.3s ease;
+  }
+
+  &.opened:after {
+    transform: rotate(180deg);
+  }
+}
+
+.submitButton {
+  padding: 16px 20px;
+  width: 100%;
+  height: 60px;
+  font-size: 20px;
+}
+
+.checkbox {
+    position: absolute;
+    top: 100%;
+}

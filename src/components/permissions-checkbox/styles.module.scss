@@ -1,0 +1,38 @@
+.wrapper {
+  padding: 22px 20px;
+}
+
+.field {
+  display: flex;
+  color: var(--secondary);
+  font-size: 16px;
+  font-weight: 450;
+}
+
+.styledCheckbox {
+  display: flex;
+  margin-right: 10px;
+  cursor: pointer;
+
+  input {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+
+  span {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--gray2);
+    border-radius: 5px;
+
+    &.checked {
+      background-color: var(--purple);
+      border-color: var(--purple);
+      background-image: url("../../assets/icons/check.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}

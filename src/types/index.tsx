@@ -5,4 +5,9 @@ interface IUser {
     permissions: string[]
 }
 
-export type { IUser }
+interface CheckboxItem {
+    name: string
+    value: boolean
+}
+
+export type { IUser, CheckboxItem }
